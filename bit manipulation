@@ -1,0 +1,26 @@
+class Solution {
+    public int rangeBitwiseAnd(int left, int right) {
+        // method 1 brute force
+
+        // int ans = left;
+        // for(int i = left + 1; i < right; i++){
+        //     ans = ans & i;
+        // }
+        // return ans;
+
+
+        // method 2 optimal solution
+        int count = 0;
+        while(left != right){
+            // dono ka left shift kro or shift count kro 
+            left = left >> 1;
+            right = right >> 1;
+            count++;
+        }
+        // left ya right ka right shift with count and return
+        int ans = right << count;
+        return ans;
+
+        
+    }
+}
