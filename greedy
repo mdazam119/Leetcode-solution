@@ -1,0 +1,26 @@
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        // phle ending ke hisab se sorting
+
+        Arrays.sort(intervals , (a,b) -> a[1] - b[1]);
+
+        // store the previous
+        int pre = intervals[0][1];
+        int count = 0;
+
+        // traverse
+        for(int i = 1; i < intervals.length; i++){
+
+            // compare pre to current element
+            int curr = intervals[i][0];
+
+            if(pre > curr){
+                count++;
+            }else{
+                pre = intervals[i][1];
+            }
+        }
+        return count;
+        
+    }
+}
